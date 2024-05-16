@@ -1,12 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Video({ item }) {
-  // const videoId = getVideoId(key);
   const { title, channelTitle, publishedAt } = item.snippet;
   const imgUrl = item.snippet.thumbnails.medium.url;
   const timeNotation = getTimeNotation(publishedAt);
+  const videoId = typeof item.id === 'string' ? item.id : item.id.videoId;
+  const navigate = useNavigate();
   return (
-    <li>
+    <li
+      onClick={() => {
+        navigate(`/videos/watch/${videoId}`);
+      }}
+    >
       <img src={imgUrl} alt='' />
       <p>{title}</p>
       <p>{channelTitle}</p>
