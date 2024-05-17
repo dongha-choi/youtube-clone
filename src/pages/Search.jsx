@@ -8,8 +8,7 @@ export default function Search() {
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
   useEffect(() => {
     // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${q}&type=video&key=${apiKey}`;
-    // fetch(process.env.PUBLIC_URL + '/data/search-videos.json')
-    fetch('/data/search-videos.json')
+    fetch(process.env.PUBLIC_URL + '/data/search-videos.json')
       .then((res) => res.json())
       .then((data) => setSearchedVideos(data.items))
       .catch((error) => console.error(error));

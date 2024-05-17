@@ -1,11 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Video from '../components/Video';
+import Detail from '../components/Detail';
 
 export default function Watch() {
   const { videoId } = useParams();
 
+  // load Youtube video player
   useEffect(() => {
     let player;
     const createPlayer = () => {
@@ -39,18 +40,11 @@ export default function Watch() {
     };
   }, [videoId]);
 
-  // const { data: videoInfo } = useQuery({
-  //   queryKey: ['watch'],
-  //   queryFn: async () => {
-  //     const res = await fetch(`${process.env.PUBLIC_URL}/data/one-video.json`);
-  //     return await res.json();
-  //   },
-  // });
-
   return (
     <div>
       <div>
         <div id='player'></div>
+        <Detail videoId={videoId} />
       </div>
       {/*
       <div>{.map(<Video/>)} </div>

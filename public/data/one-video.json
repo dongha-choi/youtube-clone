@@ -1,0 +1,67 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "JtdIrXg9uQzTNPruJYdy3sqcmpE",
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "4sArHAt5_nLmlqUGxNVFNfHSq30",
+      "id": "f1J38FlDKxo",
+      "snippet": {
+        "publishedAt": "2024-05-07T14:46:21Z",
+        "channelId": "UCE_M8A5yxnLfW0KghEeajjw",
+        "title": "Apple Event - May 7",
+        "description": "Watch the special Apple Event to learn about the new iPad Air, now in two sizes, iPad Pro with the next-generation M4 chip, and the first-ever Apple Pencil Pro.\n\nTo watch the event interpreted in American Sign Language (ASL), please click here: https://youtu.be/K7jrXhszmUk\n\nAudio Descriptions: https://apple.co/4bryfsf\n\n00:00 Introduction\n03:59 iPad Air\n10:27 iPad Pro\n\n\"Shotput\" by Still Woozy https://apple.co/woozy-shotput\n\"Slug\" by Matt Champion https://apple.co/champion-slug\n“Float (feat. Seun Kuti & Egypt 80)” by Janelle Monae https://apple.co/janelle-float\n\"Mahal\" by Glass Beams https://apple.co/glass-mahal\n\"No Days Off\" by Teni https://apple.co/teni-no-days-off\n“All I Ever Need Is You\" by Sonny & Cher https://apple.co/sonny-cher-all-I-need\n“bla bla bla” by rusowsky, Barry B, DRUMMIE https://apple.co/bla-bla-bla\n“In The Wild\" by Rae Morris https://apple.co/in-the-wild\n“Adam Sandler\" by AG Club https://apple.co/club-sandler\n\n#AppleEvent #AppleKeynote #iPad\n\nWelcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/f1J38FlDKxo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/f1J38FlDKxo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/f1J38FlDKxo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/f1J38FlDKxo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/f1J38FlDKxo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Apple",
+        "tags": [
+          "Apple",
+          "Apple Event",
+          "Apple Keynote",
+          "Apple Special Event",
+          "keynote",
+          "iPad",
+          "iPad Pro",
+          "Apple Pencil Pro",
+          "iPad Air"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "localized": {
+          "title": "Apple Event - May 7",
+          "description": "Watch the special Apple Event to learn about the new iPad Air, now in two sizes, iPad Pro with the next-generation M4 chip, and the first-ever Apple Pencil Pro.\n\nTo watch the event interpreted in American Sign Language (ASL), please click here: https://youtu.be/K7jrXhszmUk\n\nAudio Descriptions: https://apple.co/4bryfsf\n\n00:00 Introduction\n03:59 iPad Air\n10:27 iPad Pro\n\n\"Shotput\" by Still Woozy https://apple.co/woozy-shotput\n\"Slug\" by Matt Champion https://apple.co/champion-slug\n“Float (feat. Seun Kuti & Egypt 80)” by Janelle Monae https://apple.co/janelle-float\n\"Mahal\" by Glass Beams https://apple.co/glass-mahal\n\"No Days Off\" by Teni https://apple.co/teni-no-days-off\n“All I Ever Need Is You\" by Sonny & Cher https://apple.co/sonny-cher-all-I-need\n“bla bla bla” by rusowsky, Barry B, DRUMMIE https://apple.co/bla-bla-bla\n“In The Wild\" by Rae Morris https://apple.co/in-the-wild\n“Adam Sandler\" by AG Club https://apple.co/club-sandler\n\n#AppleEvent #AppleKeynote #iPad\n\nWelcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it."
+        },
+        "defaultAudioLanguage": "en"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  }
+}
