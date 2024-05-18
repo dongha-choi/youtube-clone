@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Video from '../components/Video';
 import Detail from '../components/Detail';
+import RelatedVideos from '../components/RelatedVideos';
+import { useQuery } from '@tanstack/react-query';
 
 export default function Watch() {
   const { videoId } = useParams();
@@ -40,15 +41,31 @@ export default function Watch() {
     };
   }, [videoId]);
 
+  const { data: videoSnippet, isLoading: videoLoading } = useQuery({
+    queryKey: ['video', videoId],
+    queryFn: async () => {
+      const res = await fetch(`${process.env.PUBLIC_URL}/data/one-video.json`);
+      const data = await res.json();
+      return data.items[0].snippet;
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+
   return (
     <div>
       <div>
         <div id='player'></div>
-        <Detail videoId={videoId} />
+        {videoLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <Detail videoSnippet={videoSnippet} />
+        )}
       </div>
-      {/*
-      <div>{.map(<Video/>)} </div>
-      */}
+      {videoLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <RelatedVideos videoSnippet={videoSnippet} />
+      )}
     </div>
   );
 }

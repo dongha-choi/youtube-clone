@@ -4,27 +4,10 @@ import getTimeNotation from '../utils/getTimeNotation';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
-export default function Detail({ videoId }) {
-  const {
-    data: videoSnippet,
-    isLoading: videoLoading,
-    isError: videoError,
-  } = useQuery({
-    queryKey: ['video', videoId],
-    queryFn: async () => {
-      const res = await fetch(`${process.env.PUBLIC_URL}/data/one-video.json`);
-      const data = await res.json();
-      return data.items[0].snippet;
-    },
-  });
-
-  let title, description, channelTitle, channelId, publishedAt, timeNotation;
-
-  if (videoSnippet) {
-    ({ title, description, channelTitle, channelId, publishedAt } =
-      videoSnippet);
-    timeNotation = getTimeNotation(publishedAt);
-  }
+export default function Detail({ videoSnippet }) {
+  const { title, description, channelTitle, channelId, publishedAt } =
+    videoSnippet;
+  const timeNotation = getTimeNotation(publishedAt);
 
   const {
     data: channelSnippet,
@@ -40,10 +23,11 @@ export default function Detail({ videoId }) {
       return data.items[0].snippet;
     },
     enabled: !!channelId, // Only run this query if channelId is available
+    staleTime: 5 * 60 * 1000,
   });
 
-  if (videoLoading || channelLoading) return <div>Loading...</div>;
-  if (videoError || channelError) return <div>Error loading data</div>;
+  if (channelLoading) return <div>Loading...</div>;
+  if (channelError) return <div>Error loading data</div>;
   return (
     <div>
       <p>{title}</p>
