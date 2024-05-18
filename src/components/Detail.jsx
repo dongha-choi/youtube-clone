@@ -19,7 +19,6 @@ export default function Detail({ videoSnippet }) {
       const url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
-      console.log('channel fetched');
       return data.items[0].snippet;
     },
     enabled: !!channelId, // Only run this query if channelId is available
