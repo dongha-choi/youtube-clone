@@ -2,17 +2,21 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Video from './Video';
 
-export default function RelatedVideos({ videoSnippet }) {
+export default function RelatedVideos({ videoId, videoSnippet }) {
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
-  const { title } = videoSnippet;
+  const { title, channelTitle } = videoSnippet;
   const { data: relatedVideos, isLoading } = useQuery({
-    queryKey: ['relatedVideos'],
+    queryKey: ['relatedVideos', videoId],
     queryFn: async () => {
       // const url = `${process.env.PUBLIC_URL}/data/search-videos.json`
-      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${title}&type=video&key=${apiKey}`;
+      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${channelTitle}&type=video&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
-      return data.items;
+      return data.items.filter((item) => {
+        const itemTitle = decodeHtmlEntities(item.snippet.title);
+        const videoTitle = decodeHtmlEntities(title);
+        return itemTitle !== videoTitle;
+      });
     },
     staleTime: 5 * 60 * 1000,
   });
@@ -24,4 +28,9 @@ export default function RelatedVideos({ videoSnippet }) {
       })}
     </>
   );
+}
+function decodeHtmlEntities(text) {
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = text;
+  return textarea.value;
 }

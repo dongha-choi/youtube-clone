@@ -44,7 +44,7 @@ export default function Watch() {
   }, [videoId]);
 
   const { data: videoSnippet, isLoading: videoLoading } = useQuery({
-    queryKey: ['videoSnippet'],
+    queryKey: ['videoSnippet', videoId],
     queryFn: async () => {
       // const url = `${process.env.PUBLIC_URL}/data/one-video.json`;
       const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
@@ -68,7 +68,7 @@ export default function Watch() {
       {videoLoading ? (
         <p>Loading...</p>
       ) : (
-        <RelatedVideos videoSnippet={videoSnippet} />
+        <RelatedVideos videoId={videoId} videoSnippet={videoSnippet} />
       )}
     </div>
   );

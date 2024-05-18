@@ -8,7 +8,7 @@ const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 export default function Search() {
   const { q } = useParams();
   const { data: searchedVideos, isLoading } = useQuery({
-    queryKey: ['searchedVideos'],
+    queryKey: ['searchedVideos', q],
     queryFn: async () => {
       // const url = process.env.PUBLIC_URL + '/data/search-videos.json';
       const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${q}&type=video&key=${apiKey}`;
