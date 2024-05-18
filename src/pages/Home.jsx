@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Video from '../components/Video';
+import { useQuery } from '@tanstack/react-query';
 
-export default function Search() {
-  const [homeVideos, setHomeVideos] = useState([]);
-  const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
-  useEffect(() => {
-    // const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=US&key=${apiKey}`;
-    fetch('data/home-videos.json')
-      .then((res) => res.json())
-      .then((data) => setHomeVideos(data.items))
-      .catch((error) => console.log(error));
-  }, []);
+const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+
+export default function Home() {
+  const { data: homeVideos, isLoading } = useQuery({
+    queryKey: ['homeVideos'],
+    queryFn: async () => {
+      // const url = 'data/home-videos.json';
+      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=US&key=${apiKey}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      return data.items;
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+  if (isLoading) return <div>Loading...</div>;
   return (
     <>
       {homeVideos.map((item) => {

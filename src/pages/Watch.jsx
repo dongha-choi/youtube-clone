@@ -4,6 +4,8 @@ import Detail from '../components/Detail';
 import RelatedVideos from '../components/RelatedVideos';
 import { useQuery } from '@tanstack/react-query';
 
+const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+
 export default function Watch() {
   const { videoId } = useParams();
 
@@ -42,9 +44,11 @@ export default function Watch() {
   }, [videoId]);
 
   const { data: videoSnippet, isLoading: videoLoading } = useQuery({
-    queryKey: ['video', videoId],
+    queryKey: ['videoSnippet'],
     queryFn: async () => {
-      const res = await fetch(`${process.env.PUBLIC_URL}/data/one-video.json`);
+      // const url = `${process.env.PUBLIC_URL}/data/one-video.json`;
+      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
+      const res = await fetch(url);
       const data = await res.json();
       return data.items[0].snippet;
     },

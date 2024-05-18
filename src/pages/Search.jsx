@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import Video from '../components/Video';
+import { useQuery } from '@tanstack/react-query';
+
+const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 export default function Search() {
   const { q } = useParams();
-  const [searchedVideos, setSearchedVideos] = useState([]);
-  const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
-  useEffect(() => {
-    // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${q}&type=video&key=${apiKey}`;
-    fetch(process.env.PUBLIC_URL + '/data/search-videos.json')
-      .then((res) => res.json())
-      .then((data) => setSearchedVideos(data.items))
-      .catch((error) => console.error(error));
-  }, []);
+  const { data: searchedVideos, isLoading } = useQuery({
+    queryKey: ['searchedVideos'],
+    queryFn: async () => {
+      // const url = process.env.PUBLIC_URL + '/data/search-videos.json';
+      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${q}&type=video&key=${apiKey}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      return data.items;
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+  if (isLoading) return <div>Loading...</div>;
   return (
     <>
       {searchedVideos.map((item) => {

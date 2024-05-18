@@ -14,7 +14,7 @@ export default function Detail({ videoSnippet }) {
     isLoading: channelLoading,
     isError: channelError,
   } = useQuery({
-    queryKey: ['channel', channelId],
+    queryKey: ['channelSnippet'],
     queryFn: async () => {
       const url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${apiKey}`;
       const res = await fetch(url);
