@@ -8,8 +8,8 @@ export default function RelatedVideos({ videoId, videoSnippet }) {
   const { data: relatedVideos, isLoading } = useQuery({
     queryKey: ['relatedVideos', videoId],
     queryFn: async () => {
-      // const url = `${process.env.PUBLIC_URL}/data/search-videos.json`
-      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${channelTitle}&type=video&key=${apiKey}`;
+      const url = `${process.env.PUBLIC_URL}/data/search-videos.json`;
+      // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${channelTitle}&type=video&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
       return data.items.filter((item) => {

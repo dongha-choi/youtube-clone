@@ -10,8 +10,8 @@ export default function Search() {
   const { data: searchedVideos, isLoading } = useQuery({
     queryKey: ['searchedVideos', q],
     queryFn: async () => {
-      // const url = process.env.PUBLIC_URL + '/data/search-videos.json';
-      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${q}&type=video&key=${apiKey}`;
+      const url = process.env.PUBLIC_URL + '/data/search-videos.json';
+      // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${q}&type=video&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
       return data.items;
