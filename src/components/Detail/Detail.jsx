@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import getTimeNotation from '../../utils/getTimeNotation';
+import styles from './Detail.module.css';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -8,6 +9,11 @@ export default function Detail({ videoSnippet }) {
   const { title, description, channelTitle, channelId, publishedAt } =
     videoSnippet;
   const timeNotation = getTimeNotation(publishedAt);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleDescription = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   const {
     data: channelSnippet,
@@ -29,12 +35,29 @@ export default function Detail({ videoSnippet }) {
   if (channelLoading) return <div>Loading...</div>;
   if (channelError) return <div>Error loading data</div>;
   return (
-    <div>
-      <p>{title}</p>
-      <img src={channelSnippet.thumbnails.default.url} alt={channelTitle} />
-      <p>{channelTitle}</p>
-      <p>{timeNotation}</p>
-      <p>{description}</p>
+    <div className={styles.container}>
+      <p className={styles.title}>{title}</p>
+      <div className={styles.channelInfo}>
+        <img
+          src={channelSnippet.thumbnails.default.url}
+          alt={channelTitle}
+          className={styles.channelLogo}
+        />
+        <p className={styles.channelTitle}> {channelTitle}</p>
+      </div>
+      <div className={styles.moreInfo}>
+        <p className={styles.timeNotation}>{timeNotation}</p>
+        <p
+          className={`${styles.description} ${
+            isExpanded ? styles.expanded : ''
+          }`}
+        >
+          {description}
+        </p>
+        <button className={styles.button} onClick={toggleDescription}>
+          {isExpanded ? 'Show Less' : 'Show More'}
+        </button>
+      </div>
     </div>
   );
 }

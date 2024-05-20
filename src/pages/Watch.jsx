@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Detail from '../components/Detail/Detail';
-import RelatedVideos from '../components/RelatedVideos';
+import RelatedVideos from '../components/RelatedVideos/RelatedVideos.jsx';
 import { useQuery } from '@tanstack/react-query';
+import styles from './Watch.module.css';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -55,7 +56,7 @@ export default function Watch() {
   });
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <div id='player'></div>
         {videoLoading ? (

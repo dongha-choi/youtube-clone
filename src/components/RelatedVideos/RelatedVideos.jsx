@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import Video from './Video/Video';
+import Video from '../Video/Video';
+import styles from './RelatedVideos.module.css';
 
 export default function RelatedVideos({ videoId, videoSnippet }) {
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
@@ -22,7 +23,7 @@ export default function RelatedVideos({ videoId, videoSnippet }) {
   });
   if (isLoading) return <div>Loading Related Videos...</div>;
   return (
-    <ul>
+    <ul className={styles.container}>
       {relatedVideos.map((item) => {
         return <Video key={item.id.videoId} item={item} />;
       })}

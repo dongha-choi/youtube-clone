@@ -1,6 +1,7 @@
 import React from 'react';
 import Video from '../components/Video/Video';
 import { useQuery } from '@tanstack/react-query';
+import styles from './VideoList.module.css';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -18,7 +19,7 @@ export default function Home() {
   });
   if (isLoading) return <div>Loading...</div>;
   return (
-    <ul>
+    <ul className={styles.videoList}>
       {homeVideos.map((item) => {
         return <Video key={item.id} item={item} />;
       })}

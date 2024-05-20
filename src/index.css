@@ -4,6 +4,7 @@
   --color-dark-gray: #212121;
   --color-gray: #3d3d3d;
   --color-light-gray: #aaaaaa;
+  --color-red: #cc181e;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
 
 #root {
   width: 100%;
-  max-width: 800px;
+  max-width: 1024px;
 }
 
 code {
@@ -38,4 +39,10 @@ ul {
 
 p {
   margin: 0;
+  padding-top: 0;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
 }

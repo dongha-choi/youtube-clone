@@ -1,6 +1,6 @@
 .container {
-  width: 30%;
-  height: 240px;
+  width: 24%;
+  height: 250px;
 }
 .container:hover {
   cursor: pointer;

@@ -14,23 +14,26 @@ export default function Navbar() {
   };
   const handleChange = (e) => setText(e.target.value);
   return (
-    <div className={styles.navbar}>
-      <Link to='/' className={styles.logo}>
-        <FaYoutube className={styles.icon} />
-        <span>YouTube</span>
-      </Link>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type='text'
-          value={text}
-          placeholder='Search...'
-          onChange={handleChange}
-          className={styles.input}
-        />
-        <button className={styles.button}>
-          <IoIosSearch />
-        </button>
-      </form>
+    <div>
+      <div className={styles.navbar}>
+        <Link to='/' className={styles.logo}>
+          <FaYoutube className={styles.icon} />
+          <span>YouTube</span>
+        </Link>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            type='text'
+            value={text}
+            placeholder='Search...'
+            onChange={handleChange}
+            className={styles.input}
+          />
+          <button className={styles.button}>
+            <IoIosSearch />
+          </button>
+        </form>
+      </div>
+      <div className={styles.line}></div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Video from '../components/Video/Video';
 import { useQuery } from '@tanstack/react-query';
+import styles from './VideoList.module.css';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -20,7 +21,7 @@ export default function Search() {
   });
   if (isLoading) return <div>Loading...</div>;
   return (
-    <ul>
+    <ul className={styles.videoList}>
       {searchedVideos.map((item) => {
         return <Video key={item.id.videoId} item={item} />;
       })}

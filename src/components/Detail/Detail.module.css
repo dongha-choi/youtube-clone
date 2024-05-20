@@ -1,0 +1,56 @@
+.container {
+  width: 640px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0;
+}
+.container * {
+  padding: 0;
+}
+.channelInfo {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.channelLogo {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+}
+.channelTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.moreInfo {
+  background-color: var(--color-dark-gray);
+  padding: 16px 20px;
+  border-radius: 10px;
+}
+.timeNotation {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.description {
+  margin-top: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+.description.expanded {
+  -webkit-line-clamp: unset;
+}
+.button {
+  margin-top: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
