@@ -22,11 +22,11 @@ export default function RelatedVideos({ videoId, videoSnippet }) {
   });
   if (isLoading) return <div>Loading Related Videos...</div>;
   return (
-    <>
+    <ul>
       {relatedVideos.map((item) => {
         return <Video key={item.id.videoId} item={item} />;
       })}
-    </>
+    </ul>
   );
 }
 function decodeHtmlEntities(text) {

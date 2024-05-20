@@ -18,10 +18,10 @@ export default function Home() {
   });
   if (isLoading) return <div>Loading...</div>;
   return (
-    <>
+    <ul>
       {homeVideos.map((item) => {
         return <Video key={item.id} item={item} />;
       })}
-    </>
+    </ul>
   );
 }

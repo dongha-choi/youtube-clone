@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import styles from './Navbar.module.css';
+import { FaYoutube } from 'react-icons/fa';
+import { IoIosSearch } from 'react-icons/io';
 
 export default function Navbar() {
   const [text, setText] = useState('');
@@ -11,16 +14,22 @@ export default function Navbar() {
   };
   const handleChange = (e) => setText(e.target.value);
   return (
-    <div>
-      <Link to='/'>Logo</Link>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.navbar}>
+      <Link to='/' className={styles.logo}>
+        <FaYoutube className={styles.icon} />
+        <span>YouTube</span>
+      </Link>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type='text'
           value={text}
           placeholder='Search...'
           onChange={handleChange}
+          className={styles.input}
         />
-        <button>🔍</button>
+        <button className={styles.button}>
+          <IoIosSearch />
+        </button>
       </form>
     </div>
   );

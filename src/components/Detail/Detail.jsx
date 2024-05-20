@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import getTimeNotation from '../utils/getTimeNotation';
+import getTimeNotation from '../../utils/getTimeNotation';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 

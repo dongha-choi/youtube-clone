@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Detail from '../components/Detail';
+import Detail from '../components/Detail/Detail';
 import RelatedVideos from '../components/RelatedVideos';
 import { useQuery } from '@tanstack/react-query';
 
@@ -13,7 +13,6 @@ export default function Watch() {
   useEffect(() => {
     let player;
     const createPlayer = () => {
-      console.log('Creating Player...');
       player = new window.YT.Player('player', {
         height: '390',
         width: '640',

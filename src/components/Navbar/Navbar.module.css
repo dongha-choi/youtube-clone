@@ -1,0 +1,49 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 10px 0;
+  gap: 100px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text);
+}
+
+.icon {
+  color: red;
+  font-size: 2rem;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  margin-top: 4px;
+}
+.input {
+  flex: 1 0 auto;
+  font-size: 1rem;
+  background-color: var(--color-dark-gray);
+  padding: 8px;
+  border: none;
+  color: var(--color-text);
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+.button {
+  width: 40px;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  padding-top: 4px;
+  background-color: var(--color-gray);
+  color: var(--color-text);
+  border-radius: 0 5px 5px 0;
+}

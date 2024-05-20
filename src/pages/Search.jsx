@@ -20,10 +20,10 @@ export default function Search() {
   });
   if (isLoading) return <div>Loading...</div>;
   return (
-    <>
+    <ul>
       {searchedVideos.map((item) => {
         return <Video key={item.id.videoId} item={item} />;
       })}
-    </>
+    </ul>
   );
 }
