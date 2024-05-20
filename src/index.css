@@ -46,3 +46,13 @@ button {
   outline: none;
   background-color: transparent;
 }
+@media (max-width: 1024px) {
+  #root {
+    width: 100%;
+  }
+}
+@media (max-width: 656px) {
+  #root {
+    width: 100%;
+  }
+}

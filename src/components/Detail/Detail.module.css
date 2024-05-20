@@ -54,3 +54,9 @@
   cursor: pointer;
   font-weight: bold;
 }
+
+@media (max-width: 703px) {
+  .container {
+    width: 100vw;
+  }
+}

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 0 10px 0;
-  gap: 200px;
+  gap: 15%;
 }
 
 .logo {
@@ -26,7 +26,8 @@
 .form {
   display: flex;
   width: 100%;
-  margin: 6px 200px 0 0;
+  margin-top: 6px;
+  margin-right: 15%;
 }
 .input {
   flex: 1 0 auto;
@@ -52,3 +53,8 @@
   margin: 6px 0 6px 0;
   background-color: var(--color-gray);
 }
+/* @media (max-width: 656px) {
+  .navbar {
+    gap: 15%;
+  }
+} */

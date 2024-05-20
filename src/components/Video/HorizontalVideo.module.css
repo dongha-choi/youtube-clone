@@ -31,3 +31,27 @@
   color: var(--color-light-gray);
   font-weight: 500;
 }
+@media (max-width: 1024px) {
+  .container {
+    justify-content: left;
+    gap: 16px;
+    height: 120px;
+  }
+  .thumbnail {
+    border-radius: 10px;
+    object-fit: contain;
+    height: 120px;
+  }
+  .title {
+    font-size: 1rem;
+  }
+  .description {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 703px) {
+  .container {
+    width: 100vw;
+  }
+}
