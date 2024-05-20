@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Video from '../Video/Video';
 import styles from './RelatedVideos.module.css';
+import { StylesProvider } from '../../context/StylesContext';
 
 export default function RelatedVideos({ videoId, videoSnippet }) {
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;

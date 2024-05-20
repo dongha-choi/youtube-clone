@@ -15,10 +15,18 @@ export default function Watch() {
     let player;
     const createPlayer = () => {
       player = new window.YT.Player('player', {
-        height: '390',
-        width: '640',
+        height: '429',
+        width: '704',
         videoId: videoId,
+        events: {
+          onReady: onPlayerReady,
+        },
       });
+    };
+    const onPlayerReady = () => {
+      // Add the border-radius class to the iframe
+      const iframe = document.querySelector('#player');
+      iframe.classList.add('rounded-iframe');
     };
 
     if (window.YT && window.YT.Player) {

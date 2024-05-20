@@ -7,6 +7,9 @@ import Search from './pages/Search';
 import Watch from './pages/Watch';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { StylesProvider } from './context/StylesContext';
+import HorizontalVideo from './components/Video/HorizontalVideo.module.css';
+import VerticalVideo from './components/Video/VerticalVideo.module.css';
 
 const router = createBrowserRouter([
   {
@@ -14,14 +17,29 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <NotFound />,
     children: [
-      { index: true, element: <Home /> },
+      {
+        index: true,
+        element: (
+          <StylesProvider styles={VerticalVideo}>
+            <Home />
+          </StylesProvider>
+        ),
+      },
       {
         path: '/videos/:q',
-        element: <Search />,
+        element: (
+          <StylesProvider styles={VerticalVideo}>
+            <Search />
+          </StylesProvider>
+        ),
       },
       {
         path: '/videos/watch/:videoId',
-        element: <Watch />,
+        element: (
+          <StylesProvider styles={HorizontalVideo}>
+            <Watch />
+          </StylesProvider>
+        ),
       },
     ],
   },
