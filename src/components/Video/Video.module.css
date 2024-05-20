@@ -1,0 +1,30 @@
+.container {
+  width: 30%;
+  height: 240px;
+}
+.container:hover {
+  cursor: pointer;
+}
+.thumbnail {
+  border-radius: 10px;
+  width: 100%;
+}
+.title {
+  font-size: 1rem;
+  font-weight: bolder;
+  margin: 5px 0 5px 0;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 2.4rem; /* Should be line-height * 2 */
+}
+
+.description {
+  font-size: 0.8rem;
+  margin: 4px 0 4px 0;
+  color: var(--color-light-gray);
+  font-weight: 500;
+}

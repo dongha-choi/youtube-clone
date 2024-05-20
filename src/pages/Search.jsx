@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Video from '../components/Video';
+import Video from '../components/Video/Video';
 import { useQuery } from '@tanstack/react-query';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;

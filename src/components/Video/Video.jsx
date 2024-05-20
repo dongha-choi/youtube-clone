@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import getTimeNotation from '../utils/getTimeNotation.js';
+import getTimeNotation from '../../utils/getTimeNotation.js';
+import styles from './Video.module.css';
 
 export default function Video({ item }) {
   const { title, channelTitle, publishedAt } = item.snippet;
@@ -13,11 +14,12 @@ export default function Video({ item }) {
       onClick={() => {
         navigate(`/videos/watch/${videoId}`);
       }}
+      className={styles.container}
     >
-      <img src={imgUrl} alt='' />
-      <p>{title}</p>
-      <p>{channelTitle}</p>
-      <p>{timeNotation}</p>
+      <img src={imgUrl} alt='' className={styles.thumbnail} />
+      <p className={styles.title}>{title}</p>
+      <p className={styles.description}>{channelTitle}</p>
+      <p className={styles.description}>{timeNotation}</p>
     </li>
   );
 }
