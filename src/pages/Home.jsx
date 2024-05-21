@@ -1,6 +1,7 @@
 import React from 'react';
-import Video from '../components/Video';
+import Video from '../components/Video/Video';
 import { useQuery } from '@tanstack/react-query';
+import styles from './VideoList.module.css';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -8,8 +9,8 @@ export default function Home() {
   const { data: homeVideos, isLoading } = useQuery({
     queryKey: ['homeVideos'],
     queryFn: async () => {
-      // const url = 'data/home-videos.json';
-      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=US&key=${apiKey}`;
+      const url = 'data/home-videos.json';
+      // const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=US&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
       return data.items;
@@ -18,10 +19,10 @@ export default function Home() {
   });
   if (isLoading) return <div>Loading...</div>;
   return (
-    <>
+    <ul className={styles.videoList}>
       {homeVideos.map((item) => {
         return <Video key={item.id} item={item} />;
       })}
-    </>
+    </ul>
   );
 }

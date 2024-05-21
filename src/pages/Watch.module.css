@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 10px;
+}
+/* why isn't this working?????
+
+.rounded-iframe {
+  border-radius: 15px;
+  overflow: hidden;
+}
+#player iframe {
+  width: 704px;
+  height: 429px;
+} */
+
+@media (max-width: 1024px) {
+  .container {
+    margin: auto;
+    width: 704px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 703px) {
+  #player iframe {
+    width: 100vw;
+  }
+}

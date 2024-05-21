@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Detail from '../components/Detail';
-import RelatedVideos from '../components/RelatedVideos';
+import Detail from '../components/Detail/Detail';
+import RelatedVideos from '../components/RelatedVideos/RelatedVideos.jsx';
 import { useQuery } from '@tanstack/react-query';
+import styles from './Watch.module.css';
 
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -13,12 +14,19 @@ export default function Watch() {
   useEffect(() => {
     let player;
     const createPlayer = () => {
-      console.log('Creating Player...');
       player = new window.YT.Player('player', {
-        height: '390',
-        width: '640',
+        height: '429',
+        width: '704',
         videoId: videoId,
+        events: {
+          onReady: onPlayerReady,
+        },
       });
+    };
+    const onPlayerReady = () => {
+      // Add the border-radius class to the iframe
+      const iframe = document.querySelector('#player');
+      iframe.classList.add('rounded-iframe');
     };
 
     if (window.YT && window.YT.Player) {
@@ -46,8 +54,8 @@ export default function Watch() {
   const { data: videoSnippet, isLoading: videoLoading } = useQuery({
     queryKey: ['videoSnippet', videoId],
     queryFn: async () => {
-      // const url = `${process.env.PUBLIC_URL}/data/one-video.json`;
-      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
+      const url = `${process.env.PUBLIC_URL}/data/one-video.json`;
+      // const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
       return data.items[0].snippet;
@@ -56,7 +64,7 @@ export default function Watch() {
   });
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <div id='player'></div>
         {videoLoading ? (
