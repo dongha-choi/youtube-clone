@@ -9,8 +9,8 @@ export default function Home() {
   const { data: homeVideos, isLoading } = useQuery({
     queryKey: ['homeVideos'],
     queryFn: async () => {
-      const url = 'data/home-videos.json';
-      // const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=US&key=${apiKey}`;
+      // const url = 'data/home-videos.json';
+      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=US&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
       return data.items;

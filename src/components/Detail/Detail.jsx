@@ -22,8 +22,8 @@ export default function Detail({ videoSnippet }) {
   } = useQuery({
     queryKey: ['channelSnippet', channelId],
     queryFn: async () => {
-      const url = `${process.env.PUBLIC_URL}/data/one-channel.json`;
-      // const url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${apiKey}`;
+      // const url = `${process.env.PUBLIC_URL}/data/one-channel.json`;
+      const url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
       return data.items[0].snippet;

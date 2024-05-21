@@ -54,8 +54,8 @@ export default function Watch() {
   const { data: videoSnippet, isLoading: videoLoading } = useQuery({
     queryKey: ['videoSnippet', videoId],
     queryFn: async () => {
-      const url = `${process.env.PUBLIC_URL}/data/one-video.json`;
-      // const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
+      // const url = `${process.env.PUBLIC_URL}/data/one-video.json`;
+      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
       const res = await fetch(url);
       const data = await res.json();
       return data.items[0].snippet;
